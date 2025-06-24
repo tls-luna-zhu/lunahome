@@ -246,13 +246,150 @@
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
+
+        /* --- Loading Animation Styles --- */
+        .loading-heart {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .sparkle-float {
+            animation: sparkle-float 2s ease-in-out infinite;
+        }
+
+        .sparkle-1 { animation-delay: 0s; }
+        .sparkle-2 { animation-delay: 0.5s; }
+        .sparkle-3 { animation-delay: 1s; }
+        .sparkle-4 { animation-delay: 1.5s; }
+
+        @keyframes sparkle-float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-10px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .loading-text {
+            animation: text-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes text-glow {
+            0%, 100% { 
+                text-shadow: 0 0 5px rgba(216, 112, 169, 0.3);
+            }
+            50% { 
+                text-shadow: 0 0 20px rgba(216, 112, 169, 0.6), 0 0 30px rgba(216, 112, 169, 0.4);
+            }
+        }
+
+        .loading-dot {
+            animation: dot-bounce 1.4s ease-in-out infinite;
+        }
+
+        .loading-dot:nth-child(1) { animation-delay: 0s; }
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dot-bounce {
+            0%, 80%, 100% { 
+                transform: scale(0.8) translateY(0);
+                opacity: 0.7;
+            }
+            40% { 
+                transform: scale(1.2) translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        #loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .main-content.show {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-pink-100">
+    <!-- Loading Animation -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#FAF0F7] to-[#FCEEF5] transition-opacity duration-1000">
+        <div class="text-center">
+            <!-- Cute Loading Icon -->
+            <div class="relative mb-8">
+                <div class="loading-heart w-16 h-16 mx-auto mb-4">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heartGradient)"/>
+                        <defs>
+                            <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF89B8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#F5A9B8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#5BCEFA;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <!-- Floating sparkles around heart -->
+                <div class="absolute -top-2 -left-2 w-3 h-3 sparkle-float sparkle-1">
+                    <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M5 0L6.12257 3.87743L10 5L6.12257 6.12257L5 10L3.87743 6.12257L0 5L3.87743 3.87743L5 0Z" fill="#F5A9B8"/>
+                    </svg>
+                </div>
+                <div class="absolute -top-1 -right-3 w-2 h-2 sparkle-float sparkle-2">
+                    <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M3 0L3.67383 2.32617L6 3L3.67383 3.67383L3 6L2.32617 3.67383L0 3L2.32617 2.32617L3 0Z" fill="#5BCEFA"/>
+                    </svg>
+                </div>
+                <div class="absolute -bottom-2 -right-1 w-2.5 h-2.5 sparkle-float sparkle-3">
+                    <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M4 0L4.89442 2.89442L8 4L4.89442 5.10558L4 8L3.10558 5.10558L0 4L3.10558 2.89442L4 0Z" fill="#FF89B8"/>
+                    </svg>
+                </div>
+                <div class="absolute -bottom-1 -left-3 w-2 h-2 sparkle-float sparkle-4">
+                    <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M3 0L3.67383 2.32617L6 3L3.67383 3.67383L3 6L2.32617 3.67383L0 3L2.32617 2.32617L3 0Z" fill="#F5A9B8"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Loading Text -->
+            <h2 class="pixel-art-font text-2xl font-bold text-[#D870A9] mb-4 loading-text">Loading Luna's Palace...</h2>
+            
+            <!-- Cute Progress Bar -->
+            <div class="w-64 mx-auto">
+                <div class="progress-bar-bg pixel-border-white border-2">
+                    <div id="loading-progress" class="progress-bar-fill bg-gradient-to-r from-[#FF89B8] to-[#5BCEFA]"></div>
+                </div>
+            </div>
+            
+            <!-- Loading dots -->
+            <div class="flex justify-center mt-4 space-x-1">
+                <div class="loading-dot w-2 h-2 bg-[#FF89B8] rounded-full"></div>
+                <div class="loading-dot w-2 h-2 bg-[#F5A9B8] rounded-full"></div>
+                <div class="loading-dot w-2 h-2 bg-[#5BCEFA] rounded-full"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Animated Sparkle Background -->
     <div class="sparkle-bg"></div>
 
-    <div class="relative flex size-full min-h-screen flex-col group/design-root">
+    <div class="main-content relative flex size-full min-h-screen flex-col group/design-root">
         <div class="flex h-full grow flex-col">
             <!-- Header -->
             <header class="header shadow-md">
@@ -273,7 +410,7 @@
                     <div class="flex items-center gap-4 sm:gap-6">
                         <div class="hidden sm:flex items-center gap-6">
                             <a class="nav-link pixel-art-font text-lg font-medium" href="#about">About</a>
-                            <a class="nav-link pixel-art-font text-lg font-medium" href="#projects" target="_blank">My Projects</a>
+                            <a class="nav-link pixel-art-font text-lg font-medium" href="#projects">My Projects</a>
                             <a class="nav-link pixel-art-font text-lg font-medium" href="#contact">Contact</a>
                         </div>
                         <div class="avatar rounded-md size-12 pixel-border border-2 border-[var(--color-border-pink)]" style='background-image: url("avatar.png");'></div>
@@ -478,6 +615,135 @@
     </div>
     
     <script>
+        // Loading Animation Controller
+        let loadingComplete = false;
+        let resourcesLoaded = 0;
+        let totalResources = 0;
+        
+        function updateProgress() {
+            const loadingProgress = document.getElementById('loading-progress');
+            const progress = totalResources > 0 ? (resourcesLoaded / totalResources) * 100 : 0;
+            if (loadingProgress) {
+                loadingProgress.style.width = Math.min(progress, 100) + '%';
+            }
+            
+            // Complete loading when all resources are loaded
+            if (resourcesLoaded >= totalResources && totalResources > 0 && !loadingComplete) {
+                completeLoading();
+            }
+        }
+        
+        function completeLoading() {
+            if (loadingComplete) return;
+            loadingComplete = true;
+            
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainContent = document.querySelector('.main-content');
+            const loadingProgress = document.getElementById('loading-progress');
+            
+            // Ensure progress bar reaches 100%
+            if (loadingProgress) {
+                loadingProgress.style.width = '100%';
+            }
+            
+            // Wait a bit then fade out loading screen
+            setTimeout(() => {
+                if (loadingScreen) {
+                    loadingScreen.classList.add('fade-out');
+                }
+                if (mainContent) {
+                    mainContent.classList.add('show');
+                }
+                
+                // Remove loading screen from DOM after fade out
+                setTimeout(() => {
+                    if (loadingScreen) {
+                        loadingScreen.remove();
+                    }
+                }, 1000);
+            }, 300);
+        }
+        
+        // Track resource loading
+        document.addEventListener('DOMContentLoaded', function() {
+            // Count all images and other resources
+            const images = document.querySelectorAll('img');
+            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+            const scripts = document.querySelectorAll('script[src]');
+            
+            totalResources = images.length + stylesheets.length + scripts.length;
+            
+            // If no external resources, complete immediately
+            if (totalResources === 0) {
+                setTimeout(completeLoading, 500); // Small delay for visual effect
+                return;
+            }
+            
+            // Track image loading
+            images.forEach(img => {
+                if (img.complete) {
+                    resourcesLoaded++;
+                } else {
+                    img.addEventListener('load', () => {
+                        resourcesLoaded++;
+                        updateProgress();
+                    });
+                    img.addEventListener('error', () => {
+                        resourcesLoaded++;
+                        updateProgress();
+                    });
+                }
+            });
+            
+            // Track stylesheet loading
+            stylesheets.forEach(link => {
+                if (link.sheet) {
+                    resourcesLoaded++;
+                } else {
+                    link.addEventListener('load', () => {
+                        resourcesLoaded++;
+                        updateProgress();
+                    });
+                    link.addEventListener('error', () => {
+                        resourcesLoaded++;
+                        updateProgress();
+                    });
+                }
+            });
+            
+            // Track script loading
+            scripts.forEach(script => {
+                script.addEventListener('load', () => {
+                    resourcesLoaded++;
+                    updateProgress();
+                });
+                script.addEventListener('error', () => {
+                    resourcesLoaded++;
+                    updateProgress();
+                });
+            });
+            
+            // Initial progress update
+            updateProgress();
+            
+            // Fallback: complete loading after maximum 5 seconds
+            setTimeout(() => {
+                if (!loadingComplete) {
+                    completeLoading();
+                }
+            }, 5000);
+        });
+        
+        // Also listen for window load event as backup
+        window.addEventListener('load', function() {
+            // Give a small delay to ensure smooth animation
+            setTimeout(() => {
+                if (!loadingComplete) {
+                    completeLoading();
+                }
+            }, 200);
+        });
+        
         // Intersection Observer to trigger animations on scroll
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
