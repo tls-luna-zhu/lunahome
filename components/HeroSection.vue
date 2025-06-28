@@ -1,7 +1,7 @@
 <template>
   <section class="flex justify-center">
     <div class="hero-card flex w-full max-w-lg flex-col gap-6 items-center bg-white pixel-border-trans p-8 rounded-lg shadow-lg">
-      <div class="avatar rounded-md min-h-40 w-40 pixel-border border-4 border-[var(--color-border-pink)]" style='background-image: url("/avatar.png");'></div>
+      <div class="avatar rounded-md min-h-40 w-40 pixel-border border-4 border-[var(--color-border-pink)]" style='background-image: url("https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400");'></div>
       <div class="flex flex-col items-center justify-center gap-1">
         <h1 class="pixel-art-font trans-gradient-text text-6xl font-bold text-center pb-2">Luna</h1>
         <p class="pixel-art-font text-[var(--color-text-secondary)] text-xl font-medium text-center">Gamer, developer & Student</p>

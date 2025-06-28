@@ -22,7 +22,7 @@
           <a class="nav-link pixel-art-font text-lg font-medium" href="#projects">My Projects</a>
           <a class="nav-link pixel-art-font text-lg font-medium" href="#contact">Contact</a>
         </div>
-        <div class="avatar rounded-md size-12 pixel-border border-2 border-[var(--color-border-pink)]" style='background-image: url("/avatar.png");'></div>
+        <div class="avatar rounded-md size-12 pixel-border border-2 border-[var(--color-border-pink)]" style='background-image: url("https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400");'></div>
       </div>
     </nav>
   </header>
