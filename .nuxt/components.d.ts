@@ -12,7 +12,16 @@ type HydrationStrategies = {
 }
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
-      'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
+      'AboutSection': typeof import("../components/AboutSection.vue")['default']
+    'AppHeader': typeof import("../components/AppHeader.vue")['default']
+    'ContactSection': typeof import("../components/ContactSection.vue")['default']
+    'GamingSection': typeof import("../components/GamingSection.vue")['default']
+    'HeroSection': typeof import("../components/HeroSection.vue")['default']
+    'InterestsSection': typeof import("../components/InterestsSection.vue")['default']
+    'LoadingScreen': typeof import("../components/LoadingScreen.vue")['default']
+    'ProjectsSection': typeof import("../components/ProjectsSection.vue")['default']
+    'SkillsSection': typeof import("../components/SkillsSection.vue")['default']
+    'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
     'ClientOnly': typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']
@@ -24,7 +33,7 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
     'NuxtImg': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
     'NuxtPicture': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
-    'NuxtPage': typeof import("../node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']
+    'NuxtPage': typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']
     'NoScript': typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']
     'Link': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']
     'Base': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Base']
@@ -36,7 +45,16 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
+      'LazyAboutSection': LazyComponent<typeof import("../components/AboutSection.vue")['default']>
+    'LazyAppHeader': LazyComponent<typeof import("../components/AppHeader.vue")['default']>
+    'LazyContactSection': LazyComponent<typeof import("../components/ContactSection.vue")['default']>
+    'LazyGamingSection': LazyComponent<typeof import("../components/GamingSection.vue")['default']>
+    'LazyHeroSection': LazyComponent<typeof import("../components/HeroSection.vue")['default']>
+    'LazyInterestsSection': LazyComponent<typeof import("../components/InterestsSection.vue")['default']>
+    'LazyLoadingScreen': LazyComponent<typeof import("../components/LoadingScreen.vue")['default']>
+    'LazyProjectsSection': LazyComponent<typeof import("../components/ProjectsSection.vue")['default']>
+    'LazySkillsSection': LazyComponent<typeof import("../components/SkillsSection.vue")['default']>
+    'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
     'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
     'LazyClientOnly': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']>
@@ -48,7 +66,7 @@ interface _GlobalComponents {
     'LazyNuxtRouteAnnouncer': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
     'LazyNuxtImg': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
     'LazyNuxtPicture': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
-    'LazyNuxtPage': LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']>
+    'LazyNuxtPage': LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']>
     'LazyNoScript': LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
     'LazyLink': LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']>
     'LazyBase': LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Base']>
@@ -66,6 +84,15 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const AboutSection: typeof import("../components/AboutSection.vue")['default']
+export const AppHeader: typeof import("../components/AppHeader.vue")['default']
+export const ContactSection: typeof import("../components/ContactSection.vue")['default']
+export const GamingSection: typeof import("../components/GamingSection.vue")['default']
+export const HeroSection: typeof import("../components/HeroSection.vue")['default']
+export const InterestsSection: typeof import("../components/InterestsSection.vue")['default']
+export const LoadingScreen: typeof import("../components/LoadingScreen.vue")['default']
+export const ProjectsSection: typeof import("../components/ProjectsSection.vue")['default']
+export const SkillsSection: typeof import("../components/SkillsSection.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -78,7 +105,7 @@ export const NuxtTime: typeof import("../node_modules/nuxt/dist/app/components/n
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
 export const NuxtImg: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
 export const NuxtPicture: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
-export const NuxtPage: typeof import("../node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']
+export const NuxtPage: typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']
 export const NoScript: typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']
 export const Link: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']
 export const Base: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Base']
@@ -90,6 +117,15 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyAboutSection: LazyComponent<typeof import("../components/AboutSection.vue")['default']>
+export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
+export const LazyContactSection: LazyComponent<typeof import("../components/ContactSection.vue")['default']>
+export const LazyGamingSection: LazyComponent<typeof import("../components/GamingSection.vue")['default']>
+export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
+export const LazyInterestsSection: LazyComponent<typeof import("../components/InterestsSection.vue")['default']>
+export const LazyLoadingScreen: LazyComponent<typeof import("../components/LoadingScreen.vue")['default']>
+export const LazyProjectsSection: LazyComponent<typeof import("../components/ProjectsSection.vue")['default']>
+export const LazySkillsSection: LazyComponent<typeof import("../components/SkillsSection.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
@@ -102,7 +138,7 @@ export const LazyNuxtTime: LazyComponent<typeof import("../node_modules/nuxt/dis
 export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
 export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
 export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
-export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page-placeholder")['default']>
+export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']>
 export const LazyNoScript: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
 export const LazyLink: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']>
 export const LazyBase: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Base']>
